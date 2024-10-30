@@ -16,24 +16,26 @@ function restoreTheme() {
 // For clearing theme selection from the browser's storage (reset to default)
 
 function clearTheme() {
-    localStorage.removeIteme("userTheme");
+    localStorage.removeItem("userTheme");
 }
 
 /* ================================ PHASE 2 ================================ */
 
 // For storing user's display name
 function storeName(displayName) {
-    // Your code here
+    sessionStorage.setItem("displayName", displayName);
 }
-
 // For restoring user's display name, if set in the past
 function restoreName() {
-    // Your code here
+    const storedName = sessionStorage.getItem("displayName");
+    if (storedName) {
+        setInputValue("display-name", storedName);
+    }
 }
 
 // For clearing user's display name from browser storage
 function clearName() {
-    // Your code here
+    sessionStorage.removeItem("displayName");
 }
 
 /* ========================================================================= */
